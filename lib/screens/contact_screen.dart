@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:chit_chat/utils/constants.dart';
-import 'package:at_contacts_flutter/at_contacts_flutter.dart';
-import 'package:chit_chat/services/client_service.dart';
-import 'package:at_chat_flutter/utils/init_chat_service.dart';
 import 'package:chit_chat/screens/chats_screen.dart';
+import 'package:at_contacts_flutter/at_contacts_flutter.dart';
+import 'package:at_chat_flutter/utils/init_chat_service.dart' as chats;
 
 class ContactScreen extends StatefulWidget {
   static final String id = 'contact';
@@ -14,7 +12,6 @@ class ContactScreen extends StatefulWidget {
 }
 
 class _ContactScreenState extends State<ContactScreen> {
-  ClientService service = ClientService.getInstance();
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +21,7 @@ class _ContactScreenState extends State<ContactScreen> {
   }
 
   void _goToChat(BuildContext context, String atsign) {
-    initializeChatService(
-      service.atClientInstance,
-      service.atsign,
-      rootDomain: AtConstants.ROOT_DOMAIN,
-    );
-    setChatWithAtSign(atsign);
+    chats.setChatWithAtSign(atsign);
     Navigator.of(context).pushNamed(ChatsScreen.id, arguments: atsign);
   }
 }

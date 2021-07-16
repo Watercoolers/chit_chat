@@ -1,3 +1,4 @@
+import 'package:at_chat_flutter/utils/init_chat_service.dart';
 import 'package:at_client_mobile/at_client_mobile.dart';
 import 'package:at_client/at_client.dart';
 import 'package:at_commons/at_commons.dart';
@@ -44,10 +45,18 @@ class ClientService {
 
   void postOnboard(Map<String?, AtClientService> value, String? atsign) {
     _atClientServiceMap = value;
-    _atsign = atsign;
+    _atsign = atsign!;
     var instance = _getClientForAtsign(atsign: _atsign);
-    initializeContactsService(instance, atsign!,
-        rootDomain: AtConstants.ROOT_DOMAIN);
+    initializeContactsService(
+      instance,
+      atsign,
+      rootDomain: AtConstants.ROOT_DOMAIN,
+    );
+    initializeChatService(
+      instance,
+      atsign,
+      rootDomain: AtConstants.ROOT_DOMAIN,
+    );
   }
 
   //* GETTERS (should only be called after onboarding)
