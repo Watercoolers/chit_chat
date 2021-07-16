@@ -14,6 +14,7 @@ class ClientService {
 
   Map<String?, AtClientService?> _atClientServiceMap = {};
   String? path;
+  bool isOnboarded = false;
 
   //* Post onboard variables
   String? _atsign;
@@ -46,6 +47,7 @@ class ClientService {
   void postOnboard(Map<String?, AtClientService> value, String? atsign) {
     _atClientServiceMap = value;
     _atsign = atsign!;
+    isOnboarded = true;
     var instance = _getClientForAtsign(atsign: _atsign);
     initializeContactsService(
       instance,

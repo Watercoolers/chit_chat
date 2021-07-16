@@ -48,18 +48,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ClientService clientService = ClientService.getInstance();
                   var atClientPreference =
                       await clientService.getAtClientPreference();
-                  Onboarding(
-                    appAPIKey: '',
-                    context: context,
-                    atClientPreference: atClientPreference,
-                    domain: AtConstants.ROOT_DOMAIN,
-                    onboard: clientService.postOnboard,
-                    appColor: Colors.blue,
-                    onError: (error) {
-                      _logger.severe('Onboarding throws $error error');
-                    },
-                    nextScreen: ContactScreen(),
-                  );
+                  if (clientService.isOnboarded) {
+                    Navigator.of(context).pushNamed(ContactScreen.id);
+                  } else {
+                    Onboarding(
+                      appAPIKey: '',
+                      context: context,
+                      atClientPreference: atClientPreference,
+                      domain: AtConstants.ROOT_DOMAIN,
+                      onboard: clientService.postOnboard,
+                      appColor: Colors.blue,
+                      onError: (error) {
+                        _logger.severe('Onboarding throws $error error');
+                      },
+                      nextScreen: ContactScreen(),
+                    );
+                  }
                 },
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.blue),
