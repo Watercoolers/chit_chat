@@ -1,3 +1,4 @@
+import 'package:at_chat_flutter/services/chat_service.dart';
 import 'package:at_chat_flutter/utils/init_chat_service.dart';
 import 'package:at_client_mobile/at_client_mobile.dart';
 import 'package:at_client/at_client.dart';
@@ -13,8 +14,8 @@ class ClientService {
   factory ClientService.getInstance() => _singleton;
 
   Map<String?, AtClientService?> _atClientServiceMap = {};
+  Map<String, bool> _clientIsInitialized = {};
   String? path;
-  bool isOnboarded = false;
 
   //* Post onboard variables
   String? _atsign;
@@ -44,21 +45,34 @@ class ClientService {
       ..hiveStoragePath = path;
   }
 
+  void resetInstance() {
+    _atClientServiceInstance = null;
+    _atClientInstance = null;
+  }
+
   void postOnboard(Map<String?, AtClientService> value, String? atsign) {
     _atClientServiceMap = value;
     _atsign = atsign!;
-    isOnboarded = true;
     var instance = _getClientForAtsign(atsign: _atsign);
     initializeContactsService(
       instance,
       atsign,
       rootDomain: AtConstants.ROOT_DOMAIN,
     );
-    initializeChatService(
-      instance,
-      atsign,
-      rootDomain: AtConstants.ROOT_DOMAIN,
-    );
+
+    //* This prevents starting multiple monitors for at_chat_flutter
+    if (_clientIsInitialized[atsign] ?? false) {
+      initializeChatService(
+        instance,
+        atsign,
+        rootDomain: AtConstants.ROOT_DOMAIN,
+      );
+      _clientIsInitialized[atsign] = true;
+    } else {
+      var chatService = ChatService();
+      chatService.currentAtSign = atsign;
+      chatService.atClientInstance = instance;
+    }
   }
 
   //* GETTERS (should only be called after onboarding)

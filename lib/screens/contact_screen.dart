@@ -12,7 +12,6 @@ class ContactScreen extends StatefulWidget {
 }
 
 class _ContactScreenState extends State<ContactScreen> {
-
   @override
   Widget build(BuildContext context) {
     return ContactsScreen(
