@@ -113,7 +113,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         var atClientPreference = await clientService.getAtClientPreference();
         Onboarding(
           atsign: atsign,
-          appAPIKey: '477b-876u-bcez-c42z-6a3d',
+          appAPIKey: '400b-806u-bzez-z42z-6a3p',
           context: context,
           atClientPreference: atClientPreference,
           domain: AtConstants.ROOT_DOMAIN,
