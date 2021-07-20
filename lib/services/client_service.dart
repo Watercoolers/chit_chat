@@ -62,16 +62,17 @@ class ClientService {
 
     //* This prevents starting multiple monitors for at_chat_flutter
     if (_clientIsInitialized[atsign] ?? false) {
+      var chatService = ChatService();
+      chatService.currentAtSign = atsign;
+      chatService.atClientInstance = instance;
+    } else {
       initializeChatService(
         instance,
         atsign,
         rootDomain: AtConstants.ROOT_DOMAIN,
       );
+      print('initialized chat service for $atsign');
       _clientIsInitialized[atsign] = true;
-    } else {
-      var chatService = ChatService();
-      chatService.currentAtSign = atsign;
-      chatService.atClientInstance = instance;
     }
   }
 
