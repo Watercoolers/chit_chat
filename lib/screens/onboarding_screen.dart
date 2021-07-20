@@ -171,7 +171,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     child: Container(),
                   ),
                   TextButton(
-                    child: Text("Reset"),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.red),
+                    ),
+                    child: Text("Reset", style: TextStyle(color: Colors.white)),
                     onPressed: () => _resetAtSign(_atSignsList![index]),
                   )
                 ],
@@ -207,7 +210,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               },
             ),
             TextButton(
-              child: Text("Confirm"),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.red),
+              ),
+              child: Text("Reset", style: TextStyle(color: Colors.white)),
               onPressed: () {
                 _showResetDialog(context, true);
                 _keyChainManager.deleteAtSignFromKeychain(atsign);
