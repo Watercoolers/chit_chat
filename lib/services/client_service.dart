@@ -81,32 +81,4 @@ class ClientService {
   AtClientPreference get atClientPreference => _atClientPreference!;
   AtClientService get atClientServiceInstance => _atClientServiceInstance!;
   AtClientImpl get atClientInstance => _atClientInstance!;
-
-  //* VERBS
-  Future<void> sync() async {
-    await _getClientForAtsign().getSyncManager()!.sync();
-    _syncToProvider(await getAtKeys());
-  }
-
-  void _syncToProvider(List<AtKey> keys) {}
-
-  Future<String> get(AtKey atKey) async =>
-      (await _getClientForAtsign().get(atKey)).value;
-
-  Future<bool> put(AtKey atKey, String value) async =>
-      await _getClientForAtsign().put(atKey, value);
-
-  Future<bool?> delete(AtKey atKey) async =>
-      await _getClientForAtsign().delete(atKey);
-
-  Future<List<AtKey>> getAtKeys({String? regex, String? sharedBy}) async {
-    regex ??= AtConstants.NAMESPACE_REGEX;
-    return await _getClientForAtsign()
-        .getAtKeys(regex: regex, sharedBy: sharedBy);
-  }
-
-  Future<bool> notify(
-      AtKey atKey, String value, OperationEnum operation) async {
-    return await _getClientForAtsign().notify(atKey, value, operation);
-  }
 }
