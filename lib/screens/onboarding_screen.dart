@@ -5,6 +5,7 @@ import 'package:at_client_mobile/at_client_mobile.dart';
 import 'package:chit_chat/services/client_service.dart';
 import 'package:at_onboarding_flutter/screens/onboarding_widget.dart';
 import 'package:chit_chat/screens/contact_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class OnboardingScreen extends StatefulWidget {
   static final String id = 'onboard';
@@ -48,16 +49,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              _spacer(height: 100),
               Text(
                 "Chit Ch@t",
-                style: TextStyle(fontSize: 36),
+                style: GoogleFonts.playfairDisplay(
+                    fontSize: 48,
+                    textStyle: TextStyle(fontWeight: FontWeight.bold)),
               ),
-              _spacer(height: 30),
-              (_isNotEmpty) ? _previousOnboard() : Container(),
-              (_isNotEmpty) ? _spacer() : Container(),
+              _spacer(height: 100),
+              if (_isNotEmpty) _previousOnboard(),
               _newOnboard(),
-              (_isNotEmpty) ? _spacer() : Container(),
-              (_isNotEmpty) ? _resetButton() : Container(),
+              if (_isNotEmpty) _resetButton(),
             ],
           ),
         ),
@@ -72,21 +74,29 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget _previousOnboard() {
     return Column(
       children: [
-        DropdownButton(
-          value: _atsign,
-          items: _atSignsList!
-              .map((atsign) =>
-                  DropdownMenuItem(child: Text(atsign), value: atsign))
-              .toList(),
-          onChanged: (String? value) {
-            if (value != null) {
-              setState(() {
-                _atsign = value;
-              });
-            }
-          },
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            DropdownButton(
+              value: _atsign,
+              items: _atSignsList!
+                  .map((atsign) =>
+                      DropdownMenuItem(child: Text(atsign), value: atsign))
+                  .toList(),
+              onChanged: (String? value) {
+                if (value != null) {
+                  setState(() {
+                    _atsign = value;
+                  });
+                }
+              },
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            _onboard(_atsign, "Go!")
+          ],
         ),
-        _onboard(_atsign, "Let's Go!")
       ],
     );
   }
@@ -135,16 +145,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   Widget _resetButton() {
-    return ElevatedButton(
-      onPressed: () {
-        _showResetDialog(context, false);
-      },
-      style:
-          ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.blue)),
-      child: Text(
-        "Reset @signs",
-        style: TextStyle(color: Colors.white),
-      ),
+    return Column(
+      children: [
+        _spacer(height: 60),
+        ElevatedButton(
+          onPressed: () {
+            _showResetDialog(context, false);
+          },
+          style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.red)),
+          child: Text(
+            "Reset @signs",
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      ],
     );
   }
 
