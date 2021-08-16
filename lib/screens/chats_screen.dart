@@ -1,5 +1,5 @@
-import 'package:at_chat_flutter/at_chat_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:at_chat_flutter/at_chat_flutter.dart';
 import 'package:at_chat_flutter/screens/chat_screen.dart';
 
 class ChatsScreen extends StatelessWidget {

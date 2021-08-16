@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:chit_chat/screens/chats_screen.dart';
+import 'chats_screen.dart';
 import 'package:at_contacts_flutter/at_contacts_flutter.dart';
 import 'package:at_chat_flutter/utils/init_chat_service.dart' as chats;
 
