@@ -32,11 +32,9 @@ packages:
   at_backupkey_flutter:
     dependency: transitive
     description:
-      path: at_backupkey_flutter
-      ref: "feat/chat-delete"
-      resolved-ref: "84ccb50202ab4aeedfc93c215a7266cd83332b15"
-      url: "https://github.com/XavierChanth/at_widgets.git"
-    source: git
+      name: at_backupkey_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "3.0.0"
   at_base2e15:
     dependency: transitive
@@ -48,30 +46,24 @@ packages:
   at_chat_flutter:
     dependency: "direct main"
     description:
-      path: at_chat_flutter
-      ref: "feat/chat-delete"
-      resolved-ref: fa09195e520c2860a027644d55c4a86d201b2398
-      url: "https://github.com/atsign-foundation/at_widgets.git"
-    source: git
+      name: at_chat_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "3.0.0"
   at_client:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
-      path: at_client
-      ref: trunk
-      resolved-ref: "7fe0be12124ef35f1afdf5db49d7d17e5b10c0e6"
-      url: "https://github.com/atsign-foundation/at_client_sdk.git"
-    source: git
-    version: "3.0.0"
+      name: at_client
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.3"
   at_client_mobile:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
-      path: at_client_mobile
-      ref: trunk
-      resolved-ref: "7fe0be12124ef35f1afdf5db49d7d17e5b10c0e6"
-      url: "https://github.com/atsign-foundation/at_client_sdk.git"
-    source: git
-    version: "3.0.0"
+      name: at_client_mobile
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.3"
   at_common_flutter:
     dependency: transitive
     description:
@@ -87,38 +79,32 @@ packages:
     source: hosted
     version: "3.0.0"
   at_contact:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
-      path: at_contact
-      ref: trunk
-      resolved-ref: b3f2b5c05cf2ff6c39cb01bcfddc91e84277dfd5
-      url: "https://github.com/XavierChanth/at_libraries.git"
-    source: git
-    version: "2.0.3"
+      name: at_contact
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.1"
   at_contacts_flutter:
     dependency: "direct main"
     description:
-      path: at_contacts_flutter
-      ref: "feat/chat-delete"
-      resolved-ref: "84ccb50202ab4aeedfc93c215a7266cd83332b15"
-      url: "https://github.com/XavierChanth/at_widgets.git"
-    source: git
-    version: "2.0.3"
+      name: at_contacts_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.0"
   at_lookup:
     dependency: transitive
     description:
       name: at_lookup
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.1"
+    version: "3.0.3"
   at_onboarding_flutter:
     dependency: "direct main"
     description:
-      path: at_onboarding_flutter
-      ref: "feat/chat-delete"
-      resolved-ref: "84ccb50202ab4aeedfc93c215a7266cd83332b15"
-      url: "https://github.com/XavierChanth/at_widgets.git"
-    source: git
+      name: at_onboarding_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "3.0.0"
   at_persistence_secondary_server:
     dependency: transitive
@@ -137,12 +123,10 @@ packages:
   at_server_status:
     dependency: transitive
     description:
-      path: at_server_status
-      ref: trunk
-      resolved-ref: a1d0ddf41b2c70b579e46f12a827b4cf573ecda8
-      url: "https://github.com/atsign-foundation/at_libraries.git"
-    source: git
-    version: "1.0.2"
+      name: at_server_status
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.3"
   at_utf7:
     dependency: transitive
     description:

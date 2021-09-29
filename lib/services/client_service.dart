@@ -53,11 +53,7 @@ class ClientService {
     _atsign = atsign!;
     var instance = _getClientForAtsign(atsign: _atsign);
     print(instance.atClient.getCurrentAtSign());
-    initializeContactsService(
-      instance.atClient as AtClientImpl,
-      atsign,
-      rootDomain: AtConstants.ROOT_DOMAIN,
-    );
+    initializeContactsService(rootDomain: AtConstants.ROOT_DOMAIN);
 
     //* This prevents starting multiple monitors for at_chat_flutter
     initializeChatService(

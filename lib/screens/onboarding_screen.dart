@@ -1,3 +1,4 @@
+import 'package:at_onboarding_flutter/at_onboarding_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:chit_chat/utils/constants.dart';
 import 'package:at_utils/at_logger.dart';
@@ -117,6 +118,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           context: context,
           atClientPreference: atClientPreference,
           domain: AtConstants.ROOT_DOMAIN,
+          rootEnvironment: RootEnvironment.Production,
           onboard: (value, atsign) {
             clientService.postOnboard(value, atsign);
             print('atsign $atsign');
