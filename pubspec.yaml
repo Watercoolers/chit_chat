@@ -11,9 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  at_chat_flutter: ^3.0.0
+  at_chat_flutter: ^3.0.1
   at_contacts_flutter: ^3.0.0
-  at_onboarding_flutter: ^3.0.0
+  at_onboarding_flutter: ^3.0.1
   cupertino_icons: ^1.0.2
   google_fonts: ^2.1.0
 

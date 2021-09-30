@@ -49,7 +49,7 @@ packages:
       name: at_chat_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.0"
+    version: "3.0.1"
   at_client:
     dependency: transitive
     description:
@@ -105,7 +105,7 @@ packages:
       name: at_onboarding_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.0"
+    version: "3.0.1"
   at_persistence_secondary_server:
     dependency: transitive
     description:

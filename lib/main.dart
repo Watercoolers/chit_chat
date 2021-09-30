@@ -13,15 +13,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Chit Ch@t',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        initialRoute: OnboardingScreen.id,
-        routes: {
-          OnboardingScreen.id: (_) => OnboardingScreen(),
-          ContactScreen.id: (_) => ContactScreen(),
-          ChatsScreen.id: (_) => ChatsScreen(),
-        });
+      title: 'Chit Ch@t',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      initialRoute: OnboardingScreen.id,
+      routes: {
+        OnboardingScreen.id: (_) => OnboardingScreen(),
+        ContactScreen.id: (_) => ContactScreen(),
+        ChatsScreen.id: (_) => ChatsScreen(),
+      },
+    );
   }
 }
