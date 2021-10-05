@@ -35,7 +35,7 @@ packages:
       name: at_app_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-rc"
+    version: "2.0.0"
   at_backupkey_flutter:
     dependency: transitive
     description:
@@ -58,14 +58,14 @@ packages:
     source: hosted
     version: "3.0.1"
   at_client:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: at_client
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.3"
   at_client_mobile:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: at_client_mobile
       url: "https://pub.dartlang.org"
@@ -423,7 +423,7 @@ packages:
     source: hosted
     version: "1.11.1"
   permission_handler:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: permission_handler
       url: "https://pub.dartlang.org"

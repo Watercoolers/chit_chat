@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:at_chat_flutter/at_chat_flutter.dart';
 import 'package:at_chat_flutter/screens/chat_screen.dart';
+import 'package:flutter/material.dart';
 
 class ChatsScreen extends StatelessWidget {
-  static final String id = 'chat';
+  static final String id = '/chat';
 
   @override
   Widget build(BuildContext context) {

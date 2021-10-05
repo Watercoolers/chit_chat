@@ -1,31 +1,31 @@
-import 'package:at_onboarding_flutter/at_onboarding_flutter.dart';
-import 'package:flutter/material.dart';
-import 'package:chit_chat/utils/constants.dart';
-import 'package:at_utils/at_logger.dart';
+import 'package:at_app_flutter/at_app_flutter.dart';
+import 'package:at_chat_flutter/utils/init_chat_service.dart';
 import 'package:at_client_mobile/at_client_mobile.dart';
-import 'package:chit_chat/services/client_service.dart';
+import 'package:at_contacts_flutter/utils/init_contacts_service.dart';
 import 'package:at_onboarding_flutter/screens/onboarding_widget.dart';
-import 'package:chit_chat/screens/contact_screen.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/material.dart';
 
-class OnboardingScreen extends StatefulWidget {
-  static final String id = 'onboard';
-  OnboardingScreen({Key? key}) : super(key: key);
+import 'package:chit_chat/main.dart';
+import 'package:chit_chat/screens/contact_screen.dart';
+import 'package:chit_chat/screens/home_screen.dart';
+import 'package:chit_chat/widgets/error_dialog.dart';
+
+class OnboardingDialog extends StatefulWidget {
+  OnboardingDialog({Key? key}) : super(key: key);
+
   @override
-  _OnboardingScreenState createState() => _OnboardingScreenState();
+  _OnboardingDialogState createState() => _OnboardingDialogState();
 }
 
-class _OnboardingScreenState extends State<OnboardingScreen> {
-  var _logger = AtSignLogger('chit_ch@t');
+class _OnboardingDialogState extends State<OnboardingDialog> {
   KeyChainManager _keyChainManager = KeyChainManager.getInstance();
   List<String>? _atSignsList = [];
   String? _atsign;
 
-  bool get _isNotEmpty => _atSignsList?.isNotEmpty ?? false;
   @override
   void initState() {
-    initKeyChain();
     super.initState();
+    initKeyChain();
   }
 
   Future<void> initKeyChain() async {
@@ -44,33 +44,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Builder(
-        builder: (context) => Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _spacer(height: 100),
-              Text(
-                "Chit Ch@t",
-                style: GoogleFonts.playfairDisplay(
-                    fontSize: 48,
-                    textStyle: TextStyle(fontWeight: FontWeight.bold)),
-              ),
-              _spacer(height: 100),
-              if (_isNotEmpty) _previousOnboard(),
-              _newOnboard(),
-              if (_isNotEmpty) _resetButton(),
-            ],
-          ),
-        ),
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        if (_atSignsList?.isNotEmpty ?? false) _previousOnboard(),
+        _newOnboard(),
+        if (_atSignsList?.isNotEmpty ?? false) _resetButton(),
+      ],
     );
   }
-
-  Widget _spacer({double? height}) => SizedBox(
-        height: height ?? 10,
-      );
 
   Widget _previousOnboard() {
     return Column(
@@ -106,50 +88,61 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return _onboard("", "Setup a new @sign");
   }
 
-  Widget _onboard(String? atsign, String text) {
-    ClientService clientService = ClientService.getInstance();
-    clientService.resetInstance();
+  Widget _onboard(String? atSign, String text) {
     return ElevatedButton(
       onPressed: () async {
-        var atClientPreference = await clientService.getAtClientPreference();
+        var preference = await loadAtClientPreference();
         Onboarding(
-          atsign: atsign,
-          appAPIKey: '400b-806u-bzez-z42z-6a3p',
+          atsign: atSign,
           context: context,
-          atClientPreference: atClientPreference,
-          domain: AtConstants.ROOT_DOMAIN,
-          rootEnvironment: RootEnvironment.Production,
+          atClientPreference: preference,
+          domain: AtEnv.rootDomain,
+          rootEnvironment: AtEnv.rootEnvironment,
+          appAPIKey: AtEnv.appApiKey,
           onboard: (value, atsign) {
-            clientService.postOnboard(value, atsign);
-            print('atsign $atsign');
-            if (atsign != null) {
-              if (_atSignsList == null) _atSignsList = [];
-              if (!_atSignsList!.contains(atsign)) {
-                setState(() {
-                  _atSignsList!.add(atsign);
-                  _atsign = atsign;
-                });
-              }
+            initializeContactsService(rootDomain: AtEnv.rootDomain);
+            initializeChatService(AtClientManager.getInstance(), atsign!);
+            if ((atsign != null) &&
+                !(_atSignsList?.contains(atsign) ?? false)) {
+              setState(() {
+                if (_atSignsList == null) _atSignsList = [];
+                _atSignsList!.add(atsign);
+                _atsign = atsign;
+              });
             }
+            Navigator.of(context).pushNamed(ContactScreen.id);
           },
-          nextScreen: ContactScreen(),
-          appColor: Colors.blue,
           onError: (error) {
-            _logger.severe('Onboarding throws $error error');
+            _handleError(context);
           },
         );
       },
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(Colors.blue),
-      ),
       child: Text(text),
+    );
+  }
+
+  void _handleError(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) => ErrorDialog(
+        'Unable to Onboard',
+        'Please try again later!',
+        [
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).pushReplacementNamed(HomeScreen.id);
+            },
+            child: Text('Close'),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _resetButton() {
     return Column(
       children: [
-        _spacer(height: 60),
+        SizedBox(height: 60),
         ElevatedButton(
           onPressed: () {
             _showResetDialog(context, false);

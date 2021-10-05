@@ -9,13 +9,16 @@ environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
-  flutter:
-    sdk: flutter
+  at_app_flutter: 2.0.0
   at_chat_flutter: ^3.0.1
+  at_client: ^3.0.0
+  at_client_mobile: ^3.0.0
   at_contacts_flutter: ^3.0.0
   at_onboarding_flutter: ^3.0.1
+  flutter:
+    sdk: flutter
   google_fonts: ^2.1.0
-  at_app_flutter: 2.0.0-rc
+  permission_handler: ^8.2.2
 
 dev_dependencies:
   flutter_test:
