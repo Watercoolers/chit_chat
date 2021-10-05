@@ -14,42 +14,8 @@ dependencies:
   at_chat_flutter: ^3.0.1
   at_contacts_flutter: ^3.0.0
   at_onboarding_flutter: ^3.0.1
-  cupertino_icons: ^1.0.2
   google_fonts: ^2.1.0
-
-# dependency_overrides:
-#   at_contact:
-#     git:
-#       url: https://github.com/XavierChanth/at_libraries.git
-#       # url: https://github.com/atsign-foundation/at_libraries.git
-#       path: at_contact
-#       ref: trunk
-#   at_chat_flutter:
-#     git:
-#       url: https://github.com/atsign-foundation/at_widgets.git
-#       path: at_chat_flutter
-#       ref: feat/chat-delete
-#   at_contacts_flutter:
-#     git:
-#       url: https://github.com/XavierChanth/at_widgets.git
-#       path: at_contacts_flutter
-#       ref: feat/chat-delete
-#   at_onboarding_flutter:
-#     git:
-#       url: https://github.com/XavierChanth/at_widgets.git
-#       path: at_onboarding_flutter
-#       ref: feat/chat-delete
-#   at_client_mobile:
-#     git:
-#       url: https://github.com/atsign-foundation/at_client_sdk.git
-#       path: at_client_mobile
-#       ref: trunk
-#   at_client:
-#     git:
-#       url: https://github.com/atsign-foundation/at_client_sdk.git
-#       path: at_client
-#       ref: trunk
-
+  at_app_flutter: 2.0.0-rc
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.chit_chats">
+    package="com.xavierchanth.chit_chat">
    <application
         android:label="at_chats"
         android:icon="@mipmap/ic_launcher">
