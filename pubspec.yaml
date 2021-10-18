@@ -13,10 +13,12 @@ dependencies:
   at_chat_flutter: ^3.0.1
   at_client: ^3.0.0
   at_client_mobile: ^3.0.0
+  at_contact: ^3.0.1
   at_contacts_flutter: ^3.0.0
   at_onboarding_flutter: ^3.0.1
   flutter:
     sdk: flutter
+  flutter_slidable: ^0.6.0
   google_fonts: ^2.1.0
   permission_handler: ^8.2.2
 

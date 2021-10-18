@@ -86,7 +86,7 @@ packages:
     source: hosted
     version: "3.0.0"
   at_contact:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: at_contact
       url: "https://pub.dartlang.org"
@@ -280,7 +280,7 @@ packages:
     source: hosted
     version: "1.0.5"
   flutter_slidable:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_slidable
       url: "https://pub.dartlang.org"
