@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:at_app_flutter/at_app_flutter.dart';
 import 'package:at_client_mobile/at_client_mobile.dart';
+import 'package:at_contacts_flutter/at_contacts_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 
@@ -46,7 +47,8 @@ class _MyAppState extends State<MyApp> {
       routes: {
         HomeScreen.id: (_) => HomeScreen(),
         ContactScreen.id: (_) => ContactScreen(),
-        ChatsScreen.id: (_) => ChatsScreen()
+        ChatsScreen.id: (_) => ChatsScreen(),
+        'blocked': (_) => BlockedScreen(),
       },
 
       initialRoute: HomeScreen.id,

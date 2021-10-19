@@ -1,5 +1,4 @@
 import 'package:at_contact/at_contact.dart';
-import 'package:chit_chat/providers/contact_provider.dart';
 import 'package:flutter/material.dart';
 
 import 'contact_image.dart';
@@ -37,9 +36,7 @@ class ContactContent extends StatelessWidget {
           ),
           //* End section
           Row(
-            children: [
-              
-            ],
+            children: [Icon(Icons.chevron_right_sharp)],
           ),
         ],
       ),

@@ -4,8 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:chit_chat/widgets/onboarding_dialog.dart';
 
 class HomeScreen extends StatelessWidget {
-  static final String id = '/home';
-  const HomeScreen({Key? key}) : super(key: key);
+  static const String id = '/home';
+  const HomeScreen(this.atsign, {Key? key}) : super(key: key);
+  final String? atsign;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

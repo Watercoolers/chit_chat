@@ -40,6 +40,7 @@ abstract class ContactConfirmationAction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var cp = ContactProvider.of(context)!;
     return IconSlideAction(
       icon: iconData,
       color: color,
@@ -50,7 +51,7 @@ abstract class ContactConfirmationAction extends StatelessWidget {
         builder: (context) => ConfirmationDialog(
           confirmationTitle,
           confirmationMessage,
-          () => confirmationAction(ContactProvider.of(context)!),
+          () => confirmationAction(cp),
         ),
       ),
     );

@@ -3,12 +3,13 @@ import 'package:at_client/at_client.dart';
 import 'package:at_contact/at_contact.dart';
 import 'package:chit_chat/providers/contact_provider.dart';
 import 'package:chit_chat/widgets/contact_bar.dart';
+import 'package:chit_chat/widgets/contact/menu_button.dart';
 import 'package:flutter/material.dart';
 
 import 'package:chit_chat/screens/chats_screen.dart';
 
 class ContactScreen extends StatefulWidget {
-  static final String id = '/contact';
+  static const String id = '/contact';
   const ContactScreen({Key? key}) : super(key: key);
 
   @override
@@ -39,16 +40,20 @@ class _ContactScreenState extends State<ContactScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // return ContactsScreen(
-    //   onSendIconPressed: (String atsign) => _goToChat(context, atsign),
-    // );
-    return Scaffold(
-      body: ContactProvider(
-        contacts: atContactsImpl,
-        setState: setState,
-        child: ListView.builder(
+    return ContactProvider(
+      contacts: atContactsImpl,
+      setState: setState,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Center(child: Text('Messages')),
+          centerTitle: true,
+          actions: [MenuButton()],
+          toolbarHeight: 100,
+        ),
+        body: ListView.builder(
           itemCount: contacts.length,
           itemBuilder: (BuildContext context, int index) {
+            if (contacts[index].blocked ?? false) return Container();
             return ContactBar(
               contacts[index],
               action: () => _goToChat(context, contacts[index].atSign!),
