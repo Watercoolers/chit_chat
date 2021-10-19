@@ -22,7 +22,7 @@ void instantOnboard(
     onboard: (value, atsign) {
       initializeContactsService(rootDomain: AtEnv.rootDomain);
       initializeChatService(AtClientManager.getInstance(), atsign!);
-      Navigator.of(context).pushNamed(ContactScreen.id);
+      Navigator.of(context).pushReplacementNamed(ContactScreen.id);
     },
     onError: (error) {},
   );

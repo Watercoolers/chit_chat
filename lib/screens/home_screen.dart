@@ -8,15 +8,19 @@ class HomeScreen extends StatelessWidget {
   static const String id = '/home';
   const HomeScreen(this.futurePreference, {Key? key}) : super(key: key);
   final Future<AtClientPreference> futurePreference;
-  @override
-  Widget build(BuildContext context) {
-    final atsign = ModalRoute.of(context)?.settings.arguments as String?;
+
+  void onboard(BuildContext context, String? atsign) {
     futurePreference.then(
       (preference) {
         instantOnboard(context, atsign, preference);
       },
     );
+  }
 
+  @override
+  Widget build(BuildContext context) {
+    final atsign = ModalRoute.of(context)?.settings.arguments as String?;
+    onboard(context, atsign);
     return Scaffold(
       body: Center(
           child: Column(
@@ -29,6 +33,10 @@ class HomeScreen extends StatelessWidget {
               textStyle: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
+          ElevatedButton(
+            onPressed: () => onboard(context, atsign),
+            child: Text('Let\'s Go!'),
+          )
         ],
       )),
     );
