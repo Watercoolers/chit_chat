@@ -2,8 +2,8 @@ import 'package:chit_chat/providers/contact_provider.dart';
 import 'package:chit_chat/widgets/atoms/contact_action.dart';
 import 'package:flutter/material.dart';
 
-class BlockAction extends ContactConfirmationAction {
-  const BlockAction(contact, {Key? key}) : super(contact, key: key);
+class ContactActionBlock extends ContactConfirmationAction {
+  const ContactActionBlock(contact, {Key? key}) : super(contact, key: key);
 
   final IconData iconData = Icons.block;
 
