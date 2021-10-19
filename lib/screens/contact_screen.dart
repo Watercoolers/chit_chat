@@ -45,10 +45,10 @@ class _ContactScreenState extends State<ContactScreen> {
       setState: setState,
       child: Scaffold(
         appBar: AppBar(
-          title: Center(child: Text('Messages')),
+          title: Text('Messages'),
           centerTitle: true,
           actions: [ContactMenuButton()],
-          toolbarHeight: 100,
+          toolbarHeight: 80,
         ),
         body: ListView.builder(
           itemCount: contacts.length,
@@ -56,7 +56,7 @@ class _ContactScreenState extends State<ContactScreen> {
             if (contacts[index].blocked ?? false) return Container();
             return ContactBar(
               contacts[index],
-              action: () => _goToChat(context, contacts[index].atSign!),
+              action: () => pushChat(context, contacts[index].atSign!),
             );
           },
         ),
@@ -64,7 +64,7 @@ class _ContactScreenState extends State<ContactScreen> {
     );
   }
 
-  void _goToChat(BuildContext context, String atsign) {
+  void pushChat(BuildContext context, String atsign) {
     chats.setChatWithAtSign(atsign);
     Navigator.of(context).pushNamed(ChatsScreen.id, arguments: atsign);
   }
