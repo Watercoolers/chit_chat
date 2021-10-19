@@ -1,7 +1,7 @@
 import 'package:at_contact/at_contact.dart';
 import 'package:flutter/material.dart';
 
-import 'contact_image.dart';
+import '../atoms/contact_image.dart';
 
 class ContactContent extends StatelessWidget {
   ContactContent(this.contact, this.setState, {Key? key}) : super(key: key);

@@ -3,7 +3,7 @@ import 'package:chit_chat/providers/contact_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-import '../confirmation_dialog.dart';
+import 'confirmation_dialog.dart';
 
 abstract class ContactAction extends StatelessWidget {
   const ContactAction(this.contact, {Key? key, bool withConfirmation = true})

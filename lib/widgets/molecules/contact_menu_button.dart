@@ -2,8 +2,8 @@ import 'package:at_contacts_flutter/widgets/add_contacts_dialog.dart';
 import 'package:chit_chat/screens/block_screen.dart';
 import 'package:flutter/material.dart';
 
-class MenuButton extends StatelessWidget {
-  MenuButton({Key? key}) : super(key: key);
+class ContactMenuButton extends StatelessWidget {
+  ContactMenuButton({Key? key}) : super(key: key);
 
   void openProfileDialog() {}
 

@@ -2,8 +2,8 @@ import 'package:at_chat_flutter/utils/init_chat_service.dart' as chats;
 import 'package:at_client/at_client.dart';
 import 'package:at_contact/at_contact.dart';
 import 'package:chit_chat/providers/contact_provider.dart';
-import 'package:chit_chat/widgets/contact_bar.dart';
-import 'package:chit_chat/widgets/contact/menu_button.dart';
+import 'package:chit_chat/widgets/organisms/contact_bar.dart';
+import 'package:chit_chat/widgets/molecules/contact_menu_button.dart';
 import 'package:flutter/material.dart';
 
 import 'package:chit_chat/screens/chats_screen.dart';
@@ -47,7 +47,7 @@ class _ContactScreenState extends State<ContactScreen> {
         appBar: AppBar(
           title: Center(child: Text('Messages')),
           centerTitle: true,
-          actions: [MenuButton()],
+          actions: [ContactMenuButton()],
           toolbarHeight: 100,
         ),
         body: ListView.builder(

@@ -1,6 +1,8 @@
 import 'package:at_contact/at_contact.dart';
-import 'package:chit_chat/widgets/contact/contact_actions.dart';
-import 'package:chit_chat/widgets/contact/contact_content.dart';
+import 'package:chit_chat/widgets/molecules/contact_block_action.dart';
+import 'package:chit_chat/widgets/molecules/contact_delete_action.dart';
+import 'package:chit_chat/widgets/molecules/contact_content.dart';
+import 'package:chit_chat/widgets/molecules/contact_fav_action.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
