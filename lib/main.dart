@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:at_app_flutter/at_app_flutter.dart';
 import 'package:at_client_mobile/at_client_mobile.dart';
-import 'package:at_contacts_flutter/at_contacts_flutter.dart';
 import 'package:chit_chat/screens/block_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
@@ -47,9 +46,9 @@ class _MyAppState extends State<MyApp> {
       // * The onboarding screen (first screen)
       routes: {
         HomeScreen.id: (_) => HomeScreen(futurePreference),
-        ContactScreen.id: (_) => ContactScreen(),
-        ChatsScreen.id: (_) => ChatsScreen(),
-        BlockScreen.id: (_) => BlockScreen(),
+        ContactScreen.id: (_) => const ContactScreen(),
+        ChatsScreen.id: (_) => const ChatsScreen(),
+        BlockScreen.id: (_) => const BlockScreen(),
       },
       initialRoute: HomeScreen.id,
     );

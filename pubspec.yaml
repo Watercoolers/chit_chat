@@ -17,12 +17,13 @@ dependencies:
   at_contacts_flutter: ^3.0.0
   at_onboarding_flutter: ^3.0.1
   flutter:
-    sdk: flutter
+    sdk: flutter  
   flutter_slidable: ^0.6.0
   google_fonts: ^2.1.0
   permission_handler: ^8.2.2
 
 dev_dependencies:
+  flutter_lints: ^1.0.4
   flutter_test:
     sdk: flutter
 
