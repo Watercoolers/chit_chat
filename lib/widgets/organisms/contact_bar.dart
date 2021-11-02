@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class ContactBar extends StatefulWidget {
-  ContactBar(this.contact, {this.action, Key? key}) : super(key: key);
+  const ContactBar(this.contact, {this.action, Key? key}) : super(key: key);
   final AtContact contact;
   final void Function()? action;
 
@@ -22,7 +22,7 @@ class _ContactBarState extends State<ContactBar> {
       decoration: BoxDecoration(
           border: Border(bottom: BorderSide(color: Colors.grey[300]!))),
       child: Slidable(
-        actionPane: SlidableDrawerActionPane(),
+        actionPane: const SlidableDrawerActionPane(),
         child: InkWell(
           onTap: widget.action,
           child: ContactContent(widget.contact, setState),

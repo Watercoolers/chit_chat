@@ -1,5 +1,4 @@
 import 'package:at_client/at_client.dart';
-import 'package:chit_chat/main.dart';
 import 'package:chit_chat/util/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -30,12 +29,12 @@ class HomeScreen extends StatelessWidget {
             "Chit Ch@t",
             style: GoogleFonts.playfairDisplay(
               fontSize: 48,
-              textStyle: TextStyle(fontWeight: FontWeight.bold),
+              textStyle: const TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
           ElevatedButton(
             onPressed: () => onboard(context, atsign),
-            child: Text('Let\'s Go!'),
+            child: const Text("Let's Go!"),
           )
         ],
       )),

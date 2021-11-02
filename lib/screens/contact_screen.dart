@@ -45,7 +45,7 @@ class _ContactScreenState extends State<ContactScreen> {
       setState: setState,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Messages'),
+          title: const Text('Messages'),
           centerTitle: true,
           actions: [ContactMenuButton()],
           toolbarHeight: 80,

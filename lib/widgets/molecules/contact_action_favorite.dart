@@ -7,11 +7,16 @@ class ContactActionFavorite extends ContactAction {
 
   bool get isFav => contact.favourite ?? false;
 
+  @override
   IconData get iconData => (isFav) ? Icons.favorite : Icons.favorite_border;
 
+  @override
   final Color color = Colors.white;
+
+  @override
   final Color foregroundColor = Colors.red;
 
+  @override
   void Function(ContactProvider) get action => (cp) => cp.setState(
         () {
           contact.favourite = !isFav;

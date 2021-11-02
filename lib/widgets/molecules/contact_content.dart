@@ -4,14 +4,15 @@ import 'package:flutter/material.dart';
 import '../atoms/contact_image.dart';
 
 class ContactContent extends StatelessWidget {
-  ContactContent(this.contact, this.setState, {Key? key}) : super(key: key);
+  const ContactContent(this.contact, this.setState, {Key? key})
+      : super(key: key);
   final AtContact contact;
   final void Function(void Function()) setState;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -21,7 +22,7 @@ class ContactContent extends StatelessWidget {
             children: [
               Container(
                 child: ContactImage(contact),
-                padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -36,7 +37,7 @@ class ContactContent extends StatelessWidget {
           ),
           //* End section
           Row(
-            children: [Icon(Icons.chevron_right_sharp)],
+            children: const [Icon(Icons.chevron_right_sharp)],
           ),
         ],
       ),

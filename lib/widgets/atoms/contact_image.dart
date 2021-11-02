@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:chit_chat/util/string_extension.dart';
 
 class ContactImage extends StatefulWidget {
-  ContactImage(this.contact, {Key? key, this.radius}) : super(key: key);
+  const ContactImage(this.contact, {Key? key, this.radius}) : super(key: key);
   final AtContact contact;
   final double? radius;
 

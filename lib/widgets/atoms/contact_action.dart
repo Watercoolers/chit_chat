@@ -6,9 +6,8 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'confirmation_dialog.dart';
 
 abstract class ContactAction extends StatelessWidget {
-  const ContactAction(this.contact, {Key? key, bool withConfirmation = true})
-      : this.withConfirmation = withConfirmation,
-        super(key: key);
+  const ContactAction(this.contact, {Key? key, this.withConfirmation = true})
+      : super(key: key);
   final AtContact contact;
   final bool withConfirmation;
   abstract final IconData iconData;
